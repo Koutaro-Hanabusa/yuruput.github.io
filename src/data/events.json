@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "id": 2,
+      "name": "ゆるプット.kioicho #2",
+      "url": "https://dip-dev.connpass.com/event/373470/",
+      "location": "ディップ株式会社",
+      "locationUrl": "https://www.dip-net.co.jp/"
+    },
+    {
+      "id": 1,
+      "name": "ゆるプット.kioicho #1",
+      "url": "https://sencorp.connpass.com/event/357406/",
+      "location": "千株式会社",
+      "locationUrl": "https://sencorp.co.jp/"
+    }
+  ]
+}
+
