@@ -1,0 +1,29 @@
+{
+  "members": [
+    {
+      "id": "ex_takezawa",
+      "name": "ex_takezawa",
+      "url": "https://x.com/ex_takezawa",
+      "icon": "/images/staff/ex_takezawa.jpg"
+    },
+    {
+      "id": "yuba41",
+      "name": "yuba",
+      "url": "https://x.com/yuba41",
+      "icon": "/images/staff/yuba41.png"
+    },
+    {
+      "id": "MegataYuto",
+      "name": "めがた",
+      "url": "https://x.com/MegataYuto",
+      "icon": "/images/staff/megatayuto.jpg"
+    },
+    {
+      "id": "k16em",
+      "name": "ササキ",
+      "url": "https://x.com/_kei_s",
+      "icon": "/images/staff/_kei_s.jpg"
+    }
+  ]
+}
+

@@ -1,0 +1,74 @@
+---
+import '../styles/global.css'
+
+import { getCollection } from 'astro:content';
+
+const members = await getCollection('members');
+const events = await getCollection('events');
+---
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>yuruput.kioicho</title>
+	</head>
+	<body>
+		<div class="shrink-0 max-w-md mx-auto">
+			<h1>yuruput.kioicho</h1>
+			<div class="box rounded-md shadow-sm p-8">
+				<img
+					src="/images/logo.png"
+					alt="ゆるプット.kioichoのロゴ。中央に赤い星があり、その上に黒で縁取りされた白文字のローマ字で大きめにYURU PUTと書かれている。文字列の右下に、黒い長方形が描かれており、その中に白文字のローマ字でkioichoと書かれている"
+				/>
+			</div>
+			<div class="box rounded-md shadow-sm p-8">
+				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#about">概要</a></h2>
+				<p>紀尾井町でみなさんのインプットとアウトプットをしながら、情報共有やコミュニケーションをしてみなさんのエンジニアリングや活動に活かすだけのイベントです。</p>
+				<p>テーマは技術やプロダクト開発全般の話、デザインやチームの活動でもなんでも構いません。</p>
+				<p>みなさんの登壇の練習などにも是非どうぞ。</p>
+			</div>
+			<div class="box rounded-md shadow-sm p-8">
+				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#next-event">次回開催</a></h2>
+				<p>Coming soon...</p>
+			</div>
+			<div class="box rounded-md shadow-sm p-8">
+				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#past-events">過去の開催</a></h2>
+				<ul class="list-disc">
+          {events.map((event) => 
+          <li>
+            <a href=`${event.data.url}` target="_blank" rel="noopener noreferrer">{event.data.name}</a> at <a href=`${event.data.locationUrl}` target="_blank" rel="noopener noreferrer">{event.data.location}</a>
+          </li>)}
+				</ul>
+			</div>
+			<div class="box rounded-md shadow-sm p-8">
+				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#code-of-conduct">行動規範</a></h2>
+				<ul>
+					<li>私たちは勉強会に参加されるみなさんがジェンダー、性的指向、障碍、身体的外観、身体の大きさ、人種、宗教その他のいかなる自由に関わらずハラスメントフリーであることに注力し、参加者間でのいかなる形のハラスメントも容認しません。</li>
+					<li>性的表現および画像については本勉強会におけるいずれの発表においても許容いたしません。</li>
+					<li>当規則に違反する参加者は主催者の裁量により退出を命じられる可能性があります。</li>
+				</ul>
+			</div>
+			<div class="box rounded-md shadow-sm p-8">
+				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#staff">運営スタッフ</a></h2>
+				{members.map((member) => 
+					<div class="flex flex-col gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4 box rounded-md shadow-sm p-8 ...">
+						<img class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0" src=`${member.data.icon}` alt="">
+
+						<div class="space-y-2 text-center sm:text-left">
+							<div class="space-y-0.5">
+								<a class="text-lg font-semibold text-black" href=`${member.data.url}` target="_blank" rel="noopener noreferrer">{member.data.name}</a>
+							</div>
+						</div>
+					</div>
+				)}
+			</div>
+			<div class="box rounded-md shadow-sm p-8">
+				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#contact">連絡先</a></h2>
+				<p>準備中です。現状はいずれかの運営スタッフにご連絡ください。</p>
+			</div>
+		</div>
+	</body>
+</html>
+
