@@ -23,6 +23,12 @@
       "name": "ササキ",
       "url": "https://x.com/_kei_s",
       "icon": "/images/staff/_kei_s.jpg"
+    },
+    {
+      "id":"burio_16",
+      "name":"ぶりお",
+      "url":"https://x.com/burio_16",
+      "icon":"/images/staff/burio.png"
     }
   ]
 }
