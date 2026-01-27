@@ -43,23 +43,15 @@ const nextEvent = upcomingEvents[0];
 			</div>
 			<div class="box rounded-md shadow-sm p-8">
 				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#next-event">次回開催</a></h2>
-				{nextEvent ? (
-					<ul class="list-disc">
-						<li>
-							<a href={nextEvent.data.url} target="_blank" rel="noopener noreferrer">{nextEvent.data.name}</a> at <a href={nextEvent.data.locationUrl} target="_blank" rel="noopener noreferrer">{nextEvent.data.location}</a>
-						</li>
-					</ul>
-				) : (
-					<p>Coming soon...</p>
-				)}
+				<p>Coming soon...</p>
 			</div>
 			<div class="box rounded-md shadow-sm p-8">
 				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#past-events">過去の開催</a></h2>
 				<ul class="list-disc">
-					{pastEvents.map((event) =>
-					<li>
-						<a href={event.data.url} target="_blank" rel="noopener noreferrer">{event.data.name}</a> at <a href={event.data.locationUrl} target="_blank" rel="noopener noreferrer">{event.data.location}</a>
-					</li>)}
+          {events.map((event) =>
+          <li>
+            <a href=`${event.data.url}` target="_blank" rel="noopener noreferrer">{event.data.name}</a> at <a href=`${event.data.locationUrl}` target="_blank" rel="noopener noreferrer">{event.data.location}</a>
+          </li>)}
 				</ul>
 			</div>
 			<div class="box rounded-md shadow-sm p-8">
@@ -72,7 +64,7 @@ const nextEvent = upcomingEvents[0];
 			</div>
 			<div class="box rounded-md shadow-sm p-8">
 				<h2 class="page-anchor text-2xl underline decoration-solid"><a href="#staff">運営スタッフ</a></h2>
-				{members.map((member) => 
+				{members.map((member) =>
 					<div class="flex flex-col gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4 box rounded-md shadow-sm p-8 ...">
 						<img class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0" src=`${member.data.icon}` alt="">
 
@@ -91,4 +83,3 @@ const nextEvent = upcomingEvents[0];
 		</div>
 	</body>
 </html>
-
