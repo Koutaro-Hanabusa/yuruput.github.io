@@ -2,9 +2,13 @@
 import '../styles/global.css'
 
 import { getCollection } from 'astro:content';
+import { classifyEvents, getToday } from '../lib/eventUtils';
 
 const members = await getCollection('members');
 const events = await getCollection('events');
+
+const today = getToday();
+const { upcoming: upcomingEvents, past: pastEvents, next: nextEvent } = classifyEvents(events, today);
 ---
 
 <html lang="ja">
