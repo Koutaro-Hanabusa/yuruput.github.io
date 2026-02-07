@@ -2,21 +2,13 @@
 import '../styles/global.css'
 
 import { getCollection } from 'astro:content';
+import { classifyEvents, getToday } from '../lib/eventUtils';
 
 const members = await getCollection('members');
 const events = await getCollection('events');
 
-const today = new Date();
-today.setHours(0, 0, 0, 0);
-
-const sortedEvents = events.sort((a, b) =>
-  new Date(a.data.date).getTime() - new Date(b.data.date).getTime()
-);
-
-const upcomingEvents = sortedEvents.filter(e => new Date(e.data.date) >= today);
-const pastEvents = sortedEvents.filter(e => new Date(e.data.date) < today).reverse();
-
-const nextEvent = upcomingEvents[0];
+const today = getToday();
+const { upcoming: upcomingEvents, past: pastEvents, next: nextEvent } = classifyEvents(events, today);
 ---
 
 <html lang="ja">
